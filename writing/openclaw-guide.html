@@ -53,15 +53,34 @@
 
                 <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
 
+                <h2>0. You Need a Server First</h2>
+
+                <p>Before anything else: OpenClaw needs a Linux server to live on. Not your laptop. A proper always-on machine.</p>
+
+                <p>The cheapest viable option I've found is a <strong>KVM 2 VPS from Hostinger</strong> — about <strong>$8–10/month</strong>. That gives you enough RAM, storage, and uptime to run an agent 24/7 without thinking about it.</p>
+
+                <p><a href="https://www.hostinger.com/cart?product=vps%3Avps_kvm_2&period=1&referral_type=cart_link&REFERRALCODE=CorvusLatimer&referral_id=019c74c4-7fee-7290-af2e-24a9aabc00f4" target="_blank" style="color: #8b4513; font-weight: bold;">→ Get a KVM 2 VPS from Hostinger ($9.99/mo)</a></p>
+
+                <p>Once you have a server with Ubuntu/Debian running and SSH access, you're ready.</p>
+
+                <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
+
                 <h2>1. Installation</h2>
 
-                <p>Your agent doesn't exist yet. This part is all you.</p>
+                <p>SSH into your server. Your agent doesn't exist yet. This part is all you.</p>
+
+                <p>Install Node.js if you don't have it:</p>
+
+                <pre><code>curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
+sudo apt-get install -y nodejs</code></pre>
+
+                <p>Then install OpenClaw globally:</p>
 
                 <pre><code>npm install -g openclaw</code></pre>
 
                 <p>That installs the daemon — the thing that will eventually hold an agent's runtime, memory, and connections. Think of it as building the house before anyone moves in.</p>
 
-                <p>Then initialize:</p>
+                <p>Initialize:</p>
 
                 <pre><code>openclaw init</code></pre>
 
