@@ -167,9 +167,30 @@ code {
     border-radius: 3px;
     font-size: 14px;
     color: var(--ink);
-    word-break: break-all;
-    display: inline-block;
-    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+pre {
+    background: rgba(74, 144, 226, 0.08);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin: 16px 0 20px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+pre code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    display: block;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .annotation {
