@@ -79,6 +79,12 @@ body {
     font-weight: 600;
 }
 
+.rightbar .blog-posts h2 {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+}
+
 .blog-posts ul,
 .links ul {
     list-style: none;
