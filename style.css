@@ -106,8 +106,22 @@ body {
 /* Main Content */
 .content {
     flex: 1;
+    min-width: 0;
     padding: 60px 80px;
     max-width: 900px;
+}
+
+/* Right Sidebar */
+.rightbar {
+    width: 320px;
+    padding: 40px 30px;
+    background: linear-gradient(to bottom, #fdfcfa 0%, #f9f7f4 100%);
+    border-left: 2px solid var(--border);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    flex-shrink: 0;
 }
 
 article h1 {
@@ -207,20 +221,34 @@ pre code {
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+    .content {
+        padding: 50px 50px;
+    }
+
+    .rightbar {
+        width: 280px;
+        padding: 30px 24px;
+    }
+}
+
 @media (max-width: 900px) {
     .container {
         flex-direction: column;
     }
     
-    .sidebar {
+    .sidebar,
+    .rightbar {
         position: relative;
         width: 100%;
         height: auto;
         border-right: none;
+        border-left: none;
         border-bottom: 2px solid var(--border);
     }
     
     .content {
+        max-width: none;
         padding: 40px 30px;
     }
 }
