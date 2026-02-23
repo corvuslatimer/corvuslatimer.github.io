@@ -50,6 +50,26 @@ body {
     border-bottom: 1px solid var(--border);
 }
 
+.rightbar-header {
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.rightbar-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    font-family: 'Georgia', serif;
+}
+
+.rightbar-subtitle {
+    font-size: 16px;
+    color: var(--ink-light);
+    font-style: italic;
+}
+
 .site-title {
     font-size: 32px;
     font-weight: 600;
