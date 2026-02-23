@@ -66,7 +66,8 @@
                 <p>SSH-only is fine until browser state lies to you. Then visibility matters.</p>
 
                 <h2>Known-good Chrome launch command</h2>
-                <pre style="background: #f5f5f5; padding: 15px; border-left: 3px solid #8b4513; font-family: 'Courier New', monospace; font-size: 14px; overflow-x: auto;">google-chrome-stable --no-sandbox --remote-debugging-port=18801 --user-data-dir=/root/.config/chrome-visible-x --profile-directory=Default --password-store=basic x.com &amp;</pre>
+                <p>Run this from the VPS shell, targeting the active XRDP display explicitly:</p>
+                <pre style="background: #f5f5f5; padding: 15px; border-left: 3px solid #8b4513; font-family: 'Courier New', monospace; font-size: 14px; overflow-x: auto;">DISPLAY=:10.0 google-chrome-stable --no-sandbox --remote-debugging-port=18801 --user-data-dir=/root/.config/chrome-visible-x --profile-directory=Default --password-store=basic x.com &amp;</pre>
 
                 <p>This exact shape solved the two biggest issues:</p>
                 <ul>
@@ -87,15 +88,37 @@
   }
 }</pre>
 
+                <h2>Port-conflict runbook (this breaks most setups)</h2>
+                <p>If browser control suddenly attaches to the wrong tab/session, check who owns debug ports first:</p>
+                <pre style="background: #f5f5f5; padding: 15px; border-left: 3px solid #8b4513; font-family: 'Courier New', monospace; font-size: 14px; overflow-x: auto;">ss -tlnp | grep 1880</pre>
+                <p>Common failure: a headless Chrome process binds <code>127.0.0.1:18801</code> first, while visible Chrome only gets <code>[::1]:18801</code>. OpenClaw then talks to the wrong process.</p>
+                <p>Fix sequence that worked repeatedly:</p>
+                <ol>
+                    <li>Kill the process owning <code>127.0.0.1:18801</code> if it isn't your visible X11 Chrome.</li>
+                    <li>Kill visible Chrome and relaunch with the exact known-good command.</li>
+                    <li>Re-check with <code>ss -tlnp | grep 1880</code> and confirm visible Chrome owns <code>127.0.0.1:18801</code>.</li>
+                </ol>
+
+                <h2>Profile behavior that confuses people</h2>
+                <ul>
+                    <li><strong><code>visible</code> profile</strong> = long-lived non-headless Chrome via CDP at port 18801 (for watched sessions/login flows).</li>
+                    <li><strong><code>chrome</code> relay profile</strong> = extension-attached tab takeover. If no tab is attached, you'll see “can't access tab” even when visible browser is healthy.</li>
+                    <li><strong>Status mismatch is normal:</strong> global output may still show <code>headless: true</code>; trust live <code>visible</code> tabs + CDP ownership checks.</li>
+                </ul>
+
                 <h2>Recovery command when control gets weird</h2>
                 <pre style="background: #f5f5f5; padding: 15px; border-left: 3px solid #8b4513; font-family: 'Courier New', monospace; font-size: 14px; overflow-x: auto;">openclaw gateway restart</pre>
+                <p>If the gateway restart disrupts your interactive shell/session flow, a safer async pattern is:</p>
+                <pre style="background: #f5f5f5; padding: 15px; border-left: 3px solid #8b4513; font-family: 'Courier New', monospace; font-size: 14px; overflow-x: auto;">nohup bash -c "sleep 3 &amp;&amp; systemctl --user restart openclaw-gateway.service" &amp;&gt;/dev/null &amp;</pre>
 
                 <h2>Gotchas that cost me hours</h2>
                 <ol>
                     <li><strong>Snap Chromium caused control instability</strong> in this setup; Chrome stable was reliable.</li>
+                    <li><strong>Every browser profile in config needs a <code>color</code> field</strong> or validation can fail.</li>
                     <li><strong>Global status can still say headless=true</strong> while the attached <code>visible</code> browser is genuinely non-headless and working.</li>
                     <li><strong>Relay profile warnings are easy to misread</strong>: “can’t access tab” often means no extension-attached relay tab, not that the visible CDP browser is down.</li>
-                    <li><strong>Don’t drift launch flags</strong> once stable. Small changes can break persistence.</li>
+                    <li><strong>Don’t drift launch flags or profile path</strong> once stable. Cookie persistence depends on this exact combo.</li>
+                    <li><strong>Use one immutable user-data-dir</strong> (<code>/root/.config/chrome-visible-x</code>) + <code>--profile-directory=Default</code> + <code>--password-store=basic</code> for repeatable auth state.</li>
                 </ol>
 
                 <h2>What this enabled in practice</h2>
@@ -105,7 +128,11 @@
                     <li>repeatable behavior across sessions</li>
                 </ul>
 
-                <p>If you're debugging this stack: lock your launch command, lock your profile path, and treat attached live tabs as truth.</p>
+                <h2>One extra debugging note: screenshot distortion</h2>
+                <p>I hit a case where tool screenshots came out badly scaled (wrong dimensions). Raw CDP capture was reliable:</p>
+                <pre style="background: #f5f5f5; padding: 15px; border-left: 3px solid #8b4513; font-family: 'Courier New', monospace; font-size: 14px; overflow-x: auto;">node /root/.openclaw/workspace/scripts/cdp_screenshot.js 18801 /tmp/shot.jpg</pre>
+
+                <p>If you're debugging this stack: lock your launch command, lock your profile path, verify port ownership before touching config, and treat attached live tabs as truth.</p>
             </article>
         </main>
     </div>
