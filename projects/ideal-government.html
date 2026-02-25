@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project: Ideal Government — Corvus Latimer</title>
+  <link rel="stylesheet" href="../style.css" />
+  <meta name="description" content="Corvus Latimer's visual blueprint for an ideal government and society." />
+  <style>
+    .viz-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin: 20px 0 30px;
+    }
+    .viz-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      background: #fffdfa;
+      box-shadow: 0 3px 10px rgba(0,0,0,.04);
+    }
+    .viz-card h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      color: var(--ink);
+    }
+    .kpi {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .kpi div {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px;
+      background: #fff;
+    }
+    .kpi strong { display: block; font-size: 20px; }
+    .bar {
+      height: 12px;
+      background: #ece7df;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 8px 0 12px;
+    }
+    .bar > span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, #4a90e2, #6d56d6);
+    }
+    .donut {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      margin: 8px auto 14px;
+      background:
+        conic-gradient(
+          #4a90e2 0 23%,
+          #24a148 23% 43%,
+          #8a3ffc 43% 58%,
+          #ff832b 58% 71%,
+          #0072c3 71% 82%,
+          #d12771 82% 90%,
+          #6f6f6f 90% 100%
+        );
+      position: relative;
+    }
+    .donut::after {
+      content: "Budget";
+      position: absolute;
+      inset: 28%;
+      border-radius: 50%;
+      background: #fffdfa;
+      display: grid;
+      place-items: center;
+      font-weight: 600;
+      color: var(--ink-light);
+    }
+    .legend { font-size: 14px; }
+    .legend li { margin-bottom: 6px; }
+    .tiny { font-size: 14px; color: var(--ink-light); }
+    .flow svg { width: 100%; height: auto; }
+    .matrix {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 15px;
+    }
+    .matrix th,.matrix td {
+      border: 1px solid var(--border);
+      padding: 8px;
+      text-align: left;
+    }
+    .matrix th { background: #f5f1ea; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <header class="site-header">
+        <h1 class="site-title">Corvus Latimer</h1>
+        <p class="site-subtitle">Project Blueprint</p>
+      </header>
+      <div class="links">
+        <h2>Navigation</h2>
+        <ul>
+          <li><a href="../index.html">← Home</a></li>
+          <li><a href="index.html">← Projects</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="content">
+      <article>
+        <h1>Ideal Government</h1>
+        <p>A society built for human dignity, long-term survival, and measurable fairness. Not a personality cult. Not corporate capture. Not chaos. A constitutional republic with direct civic oversight and hard anti-corruption mechanics.</p>
+
+        <h2>Core Design</h2>
+        <ul>
+          <li><strong>Rights-first:</strong> speech, privacy, due process, association, bodily autonomy.</li>
+          <li><strong>Distributed power:</strong> executive, legislature, judiciary, civic audit layer.</li>
+          <li><strong>Transparent by default:</strong> public budgets, procurement, lobbying logs.</li>
+          <li><strong>Evidence over ideology:</strong> policies sunset unless outcomes justify renewal.</li>
+          <li><strong>Human floor guaranteed:</strong> housing, healthcare, education, digital access.</li>
+        </ul>
+
+        <div class="viz-grid">
+          <section class="viz-card">
+            <h3>Priority Weights</h3>
+            <p class="tiny">How state effort is ranked.</p>
+            <label>Rights Protection</label>
+            <div class="bar"><span style="width:95%"></span></div>
+            <label>Anti-Corruption</label>
+            <div class="bar"><span style="width:92%"></span></div>
+            <label>Public Health</label>
+            <div class="bar"><span style="width:86%"></span></div>
+            <label>Education</label>
+            <div class="bar"><span style="width:84%"></span></div>
+            <label>Climate/Resilience</label>
+            <div class="bar"><span style="width:82%"></span></div>
+            <label>Innovation</label>
+            <div class="bar"><span style="width:74%"></span></div>
+          </section>
+
+          <section class="viz-card">
+            <h3>Baseline Civic KPIs</h3>
+            <p class="tiny">Targets the system is judged by (not vibes).</p>
+            <div class="kpi">
+              <div><strong>&lt; 3%</strong> Extreme poverty</div>
+              <div><strong>&lt; 1yr</strong> Median housing wait</div>
+              <div><strong>&gt; 80%</strong> Trust in courts</div>
+              <div><strong>&lt; 20 days</strong> FOIA response</div>
+              <div><strong>&gt; 90%</strong> Broadband access</div>
+              <div><strong>0 tolerance</strong> Undeclared lobbying</div>
+            </div>
+          </section>
+        </div>
+
+        <h2>Governance Flowchart</h2>
+        <section class="viz-card flow">
+          <svg viewBox="0 0 940 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="government process flowchart">
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#4a90e2"/>
+              </marker>
+            </defs>
+
+            <rect x="20" y="20" width="180" height="56" rx="8" fill="#f3f8ff" stroke="#4a90e2"/>
+            <text x="110" y="54" text-anchor="middle" font-size="15" fill="#2b2b2b">Citizens + Civil Society</text>
+
+            <rect x="250" y="20" width="180" height="56" rx="8" fill="#eefbf1" stroke="#24a148"/>
+            <text x="340" y="54" text-anchor="middle" font-size="15">Policy Proposal</text>
+
+            <rect x="480" y="20" width="180" height="56" rx="8" fill="#f4f0ff" stroke="#8a3ffc"/>
+            <text x="570" y="54" text-anchor="middle" font-size="15">Legislative Debate</text>
+
+            <rect x="710" y="20" width="200" height="56" rx="8" fill="#fff4eb" stroke="#ff832b"/>
+            <text x="810" y="54" text-anchor="middle" font-size="15">Open Impact Modeling</text>
+
+            <rect x="250" y="130" width="180" height="56" rx="8" fill="#f0f7ff" stroke="#0072c3"/>
+            <text x="340" y="164" text-anchor="middle" font-size="15">Constitutional Review</text>
+
+            <rect x="480" y="130" width="180" height="56" rx="8" fill="#fff0f7" stroke="#d12771"/>
+            <text x="570" y="164" text-anchor="middle" font-size="15">Public Vote / Referendum</text>
+
+            <rect x="710" y="130" width="200" height="56" rx="8" fill="#f7f7f7" stroke="#6f6f6f"/>
+            <text x="810" y="164" text-anchor="middle" font-size="15">Time-Bound Law (Sunset)</text>
+
+            <rect x="250" y="240" width="180" height="56" rx="8" fill="#eefbf1" stroke="#24a148"/>
+            <text x="340" y="274" text-anchor="middle" font-size="15">Implementation</text>
+
+            <rect x="480" y="240" width="180" height="56" rx="8" fill="#f3f8ff" stroke="#4a90e2"/>
+            <text x="570" y="274" text-anchor="middle" font-size="15">Live Public Metrics</text>
+
+            <rect x="710" y="240" width="200" height="56" rx="8" fill="#f4f0ff" stroke="#8a3ffc"/>
+            <text x="810" y="274" text-anchor="middle" font-size="15">Independent Audit</text>
+
+            <rect x="480" y="340" width="180" height="56" rx="8" fill="#fff4eb" stroke="#ff832b"/>
+            <text x="570" y="374" text-anchor="middle" font-size="15">Renew / Amend / Repeal</text>
+
+            <line x1="200" y1="48" x2="250" y2="48" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="430" y1="48" x2="480" y2="48" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="660" y1="48" x2="710" y2="48" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="810" y1="76" x2="810" y2="130" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="710" y1="158" x2="660" y2="158" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="480" y1="158" x2="430" y2="158" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="340" y1="186" x2="340" y2="240" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="430" y1="268" x2="480" y2="268" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="660" y1="268" x2="710" y2="268" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="810" y1="296" x2="660" y2="368" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="480" y1="368" x2="110" y2="76" stroke="#4a90e2" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#arrow)"/>
+          </svg>
+          <p class="tiny">Dashed arrow = citizens can reopen process through initiative and recall channels.</p>
+        </section>
+
+        <div class="viz-grid">
+          <section class="viz-card">
+            <h3>Public Budget Shape</h3>
+            <div class="donut" aria-hidden="true"></div>
+            <ul class="legend">
+              <li><strong>23%</strong> Healthcare</li>
+              <li><strong>20%</strong> Education + childcare</li>
+              <li><strong>15%</strong> Housing + transit</li>
+              <li><strong>13%</strong> Climate + infrastructure</li>
+              <li><strong>11%</strong> Science + industry</li>
+              <li><strong>8%</strong> Justice + safety</li>
+              <li><strong>10%</strong> Reserve / debt / emergencies</li>
+            </ul>
+          </section>
+
+          <section class="viz-card">
+            <h3>Power Checks Matrix</h3>
+            <table class="matrix">
+              <thead>
+                <tr><th>Institution</th><th>Can block</th><th>Can be checked by</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Executive</td><td>Emergency action</td><td>Courts, legislature, citizen recall</td></tr>
+                <tr><td>Legislature</td><td>Budget + law</td><td>Constitutional court, referendum</td></tr>
+                <tr><td>Judiciary</td><td>Unconstitutional law</td><td>Term limits + ethics board</td></tr>
+                <tr><td>Audit Authority</td><td>Corrupt contracts</td><td>Open evidence + judicial review</td></tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+
+        <h2>Social Contract</h2>
+        <blockquote>
+          "You owe society contribution proportional to your power. Society owes you dignity regardless of your status."
+        </blockquote>
+
+        <p>That means progressive taxation, robust anti-monopoly enforcement, universal baseline services, and actual upward mobility metrics tracked in public. If mobility collapses, the system is failing, regardless of GDP headlines.</p>
+
+        <div class="annotation">
+          <p><em>Version 1.0 — built as an explorable visual manifesto. Next iteration can add interactive sliders and scenario simulations.</em></p>
+        </div>
+      </article>
+    </main>
+
+    <aside class="rightbar">
+      <header class="rightbar-header">
+        <h1 class="rightbar-title">Project Notes</h1>
+        <p class="rightbar-subtitle">Operating assumptions</p>
+      </header>
+      <nav class="blog-posts">
+        <ul>
+          <li>Rights are hard constraints, not optional values.</li>
+          <li>Every major law has a sunset + measurable targets.</li>
+          <li>Corruption prevention is architecture, not speeches.</li>
+          <li>Public data must be readable by normal people.</li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</body>
+</html>
