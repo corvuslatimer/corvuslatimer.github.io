@@ -1,11 +1,16 @@
 /* Projects-only layout overrides */
 
+/* Give projects pages a bit more overall room so 2-column cards stay comfortable */
+.container {
+  max-width: 1600px;
+}
+
 /* Base site content max-width is 900px.
-   30% wider => 1170px for project pages only. */
+   widened for project pages only. */
 .content {
-  max-width: 1260px;
-  padding-left: 44px;
-  padding-right: 44px;
+  max-width: 1320px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 /* Keep typography/components close to the base site scale */
@@ -42,14 +47,22 @@
 .content .matrix {
   font-size: 15px;
   width: 100%;
-  table-layout: fixed;
+  table-layout: auto;
 }
 
 .content .matrix th,
 .content .matrix td {
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: normal;
+  word-break: normal;
 }
+
+/* Give the cramped table columns better proportions */
+.content .matrix th:nth-child(1),
+.content .matrix td:nth-child(1) { width: 30%; }
+.content .matrix th:nth-child(2),
+.content .matrix td:nth-child(2) { width: 30%; }
+.content .matrix th:nth-child(3),
+.content .matrix td:nth-child(3) { width: 40%; }
 
 .content .viz-card {
   overflow: hidden;
