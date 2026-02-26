@@ -10,4 +10,50 @@
    30% wider => 1170px for project pages only. */
 .content {
   max-width: 1170px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+/* Make the MIDDLE section typography + components scale with the wider layout */
+.content article {
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.content article p,
+.content article li,
+.content article label,
+.content article td,
+.content article th {
+  font-size: 1.05em;
+}
+
+.content article h1 {
+  font-size: 48px;
+}
+
+.content article h2 {
+  font-size: 32px;
+}
+
+.content article h3 {
+  font-size: 24px;
+}
+
+/* Project div cards + charts */
+.content .viz-card {
+  padding: 20px;
+}
+
+.content .kpi strong {
+  font-size: 24px;
+}
+
+.content .donut {
+  width: 250px;
+  height: 250px;
+}
+
+.content .matrix {
+  font-size: 16px;
 }
