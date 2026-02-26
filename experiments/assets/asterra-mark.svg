@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="Asterra mark">
+  <rect width="1000" height="1000" fill="#122d68"/>
+  <g transform="translate(500,360)">
+    <circle r="210" fill="none" stroke="#f5f7fb" stroke-width="34" stroke-linecap="round"/>
+    <path d="M 655 360 A 155 155 0 0 1 630 445" fill="none" stroke="#122d68" stroke-width="54"/>
+    <g>
+      <polygon points="0,-125 22,-28 112,-56 35,8 110,74 17,54 0,140 -17,54 -110,74 -35,8 -112,-56 -22,-28" fill="#e0b55b"/>
+      <polygon points="0,-90 13,-20 80,-40 24,7 78,54 12,38 0,100 -12,38 -78,54 -24,7 -80,-40 -13,-20" fill="#f6de9b" opacity="0.9"/>
+    </g>
+  </g>
+  <text x="500" y="780" text-anchor="middle" fill="#f5f7fb" font-size="110" font-family="Georgia, 'Times New Roman', serif" font-weight="700" letter-spacing="5">ASTERRA</text>
+</svg>
