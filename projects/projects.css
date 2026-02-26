@@ -3,9 +3,9 @@
 /* Base site content max-width is 900px.
    30% wider => 1170px for project pages only. */
 .content {
-  max-width: 1170px;
-  padding-left: 48px;
-  padding-right: 48px;
+  max-width: 1260px;
+  padding-left: 44px;
+  padding-right: 44px;
 }
 
 /* Keep typography/components close to the base site scale */
@@ -24,6 +24,10 @@
 
 .content article h3 {
   font-size: 20px;
+}
+
+.content .viz-grid {
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
 }
 
 .content .viz-card {
