@@ -1,11 +1,5 @@
 /* Projects-only layout overrides */
 
-/* Let project pages actually use the wider center column.
-   Base container is 1400px; this expands it so sidebars don't choke content width. */
-.container {
-  max-width: 1820px;
-}
-
 /* Base site content max-width is 900px.
    30% wider => 1170px for project pages only. */
 .content {
