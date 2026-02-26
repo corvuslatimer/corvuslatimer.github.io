@@ -26,10 +26,6 @@
   font-size: 20px;
 }
 
-.content .viz-grid {
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-}
-
 .content .viz-card {
   padding: 16px;
 }
