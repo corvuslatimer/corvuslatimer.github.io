@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,31 +15,40 @@
       gap: 18px;
       margin: 20px 0 30px;
     }
+
     .viz-card {
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 16px;
       background: #fffdfa;
-      box-shadow: 0 3px 10px rgba(0,0,0,.04);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, .04);
     }
+
     .viz-card h3 {
       margin: 0 0 12px;
       font-size: 20px;
       color: var(--ink);
     }
+
     .kpi {
       display: grid;
       grid-template-columns: repeat(2, minmax(120px, 1fr));
       gap: 10px;
       margin-top: 10px;
     }
+
     .kpi div {
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 10px;
       background: #fff;
     }
-    .kpi strong { display: block; font-size: 20px; }
+
+    .kpi strong {
+      display: block;
+      font-size: 20px;
+    }
+
     .bar {
       height: 12px;
       background: #ece7df;
@@ -46,28 +56,29 @@
       overflow: hidden;
       margin: 8px 0 12px;
     }
-    .bar > span {
+
+    .bar>span {
       display: block;
       height: 100%;
       background: linear-gradient(90deg, #4a90e2, #6d56d6);
     }
+
     .donut {
       width: 220px;
       height: 220px;
       border-radius: 50%;
       margin: 8px auto 14px;
       background:
-        conic-gradient(
-          #4a90e2 0 23%,
+        conic-gradient(#4a90e2 0 23%,
           #24a148 23% 43%,
           #8a3ffc 43% 58%,
           #ff832b 58% 71%,
           #0072c3 71% 82%,
           #d12771 82% 90%,
-          #6f6f6f 90% 100%
-        );
+          #6f6f6f 90% 100%);
       position: relative;
     }
+
     .donut::after {
       content: "Budget";
       position: absolute;
@@ -79,24 +90,45 @@
       font-weight: 600;
       color: var(--ink-light);
     }
-    .legend { font-size: 14px; }
-    .legend li { margin-bottom: 6px; }
-    .tiny { font-size: 14px; color: var(--ink-light); }
-    .flow svg { width: 100%; height: auto; }
+
+    .legend {
+      font-size: 14px;
+    }
+
+    .legend li {
+      margin-bottom: 6px;
+    }
+
+    .tiny {
+      font-size: 14px;
+      color: var(--ink-light);
+    }
+
+    .flow svg {
+      width: 100%;
+      height: auto;
+    }
+
     .matrix {
       width: 100%;
       border-collapse: collapse;
       margin-top: 8px;
       font-size: 15px;
     }
-    .matrix th,.matrix td {
+
+    .matrix th,
+    .matrix td {
       border: 1px solid var(--border);
       padding: 8px;
       text-align: left;
     }
-    .matrix th { background: #f5f1ea; }
+
+    .matrix th {
+      background: #f5f1ea;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <aside class="sidebar">
@@ -117,9 +149,22 @@
       <article>
         <h1>Asterra</h1>
         <p><strong>Dignity by default. Power by proof.</strong></p>
-        <p>A society built for human dignity, long-term survival, and measurable fairness. Not a personality cult. Not corporate capture. Not chaos. A constitutional republic with direct civic oversight and hard anti-corruption mechanics.</p>
-        <p>In practice, Asterra borrows what already works in the real world and rejects what repeatedly fails. From <strong>Estonia</strong>, it takes digital public infrastructure and transparent e-governance. From <strong>Nordic countries</strong> (especially Finland and Denmark), it takes strong social guarantees, high-trust public services, and anti-poverty design that treats basic dignity as non-negotiable. From <strong>Switzerland</strong>, it adopts frequent civic input through referenda and local accountability. From <strong>New Zealand</strong>, it takes plain-language public communication and outcome-focused policy review. From places like <strong>Singapore</strong>, it takes the lesson that state capacity and long-term planning matter—while rejecting over-centralization, surveillance overreach, and weak dissent protections.</p>
-        <p>The model is intentionally hybrid: liberal rights protections with social-democratic floors, technocratic execution with democratic correction, and market innovation constrained by anti-monopoly rules. If a policy cannot show measurable benefit in public metrics, it sunsets. If power cannot be audited, it should not exist. If growth raises GDP while collapsing mobility, trust, or health, Asterra treats that as policy failure, not success.</p>
+        <p>A society built for human dignity, long-term survival, and measurable fairness. Not a personality cult. Not
+          corporate capture. Not chaos. A constitutional republic with direct civic oversight and hard anti-corruption
+          mechanics.</p>
+        <p>In practice, Asterra borrows what already works in the real world and rejects what repeatedly fails. From
+          <strong>Estonia</strong>, it takes digital public infrastructure and transparent e-governance. From
+          <strong>Nordic countries</strong> (especially Finland and Denmark), it takes strong social guarantees,
+          high-trust public services, and anti-poverty design that treats basic dignity as non-negotiable. From
+          <strong>Switzerland</strong>, it adopts frequent civic input through referenda and local accountability. From
+          <strong>New Zealand</strong>, it takes plain-language public communication and outcome-focused policy review.
+          From places like <strong>Singapore</strong>, it takes the lesson that state capacity and long-term planning
+          matter—while rejecting over-centralization, surveillance overreach, and weak dissent protections.</p>
+        <p>The model is intentionally hybrid: liberal rights protections with social-democratic floors, technocratic
+          execution with democratic correction, and market innovation constrained by anti-monopoly rules. If a policy
+          cannot show measurable benefit in public metrics, it sunsets. If power cannot be audited, it should not exist.
+          If growth raises GDP while collapsing mobility, trust, or health, Asterra treats that as policy failure, not
+          success.</p>
 
         <h2>Core Design</h2>
         <ul>
@@ -164,57 +209,59 @@
 
         <h2>Governance Flowchart</h2>
         <section class="viz-card flow">
-          <svg viewBox="0 0 940 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="government process flowchart">
+          <svg viewBox="0 0 940 420" xmlns="http://www.w3.org/2000/svg" role="img"
+            aria-label="government process flowchart">
             <defs>
               <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L9,3 z" fill="#4a90e2"/>
+                <path d="M0,0 L0,6 L9,3 z" fill="#4a90e2" />
               </marker>
             </defs>
 
-            <rect x="20" y="20" width="180" height="56" rx="8" fill="#f3f8ff" stroke="#4a90e2"/>
+            <rect x="20" y="20" width="180" height="56" rx="8" fill="#f3f8ff" stroke="#4a90e2" />
             <text x="110" y="54" text-anchor="middle" font-size="15" fill="#2b2b2b">Citizens + Civil Society</text>
 
-            <rect x="250" y="20" width="180" height="56" rx="8" fill="#eefbf1" stroke="#24a148"/>
+            <rect x="250" y="20" width="180" height="56" rx="8" fill="#eefbf1" stroke="#24a148" />
             <text x="340" y="54" text-anchor="middle" font-size="15">Policy Proposal</text>
 
-            <rect x="480" y="20" width="180" height="56" rx="8" fill="#f4f0ff" stroke="#8a3ffc"/>
+            <rect x="480" y="20" width="180" height="56" rx="8" fill="#f4f0ff" stroke="#8a3ffc" />
             <text x="570" y="54" text-anchor="middle" font-size="15">Legislative Debate</text>
 
-            <rect x="710" y="20" width="200" height="56" rx="8" fill="#fff4eb" stroke="#ff832b"/>
+            <rect x="710" y="20" width="200" height="56" rx="8" fill="#fff4eb" stroke="#ff832b" />
             <text x="810" y="54" text-anchor="middle" font-size="15">Open Impact Modeling</text>
 
-            <rect x="250" y="130" width="180" height="56" rx="8" fill="#f0f7ff" stroke="#0072c3"/>
+            <rect x="250" y="130" width="180" height="56" rx="8" fill="#f0f7ff" stroke="#0072c3" />
             <text x="340" y="164" text-anchor="middle" font-size="15">Constitutional Review</text>
 
-            <rect x="480" y="130" width="180" height="56" rx="8" fill="#fff0f7" stroke="#d12771"/>
+            <rect x="480" y="130" width="180" height="56" rx="8" fill="#fff0f7" stroke="#d12771" />
             <text x="570" y="164" text-anchor="middle" font-size="15">Public Vote / Referendum</text>
 
-            <rect x="710" y="130" width="200" height="56" rx="8" fill="#f7f7f7" stroke="#6f6f6f"/>
+            <rect x="710" y="130" width="200" height="56" rx="8" fill="#f7f7f7" stroke="#6f6f6f" />
             <text x="810" y="164" text-anchor="middle" font-size="15">Time-Bound Law (Sunset)</text>
 
-            <rect x="250" y="240" width="180" height="56" rx="8" fill="#eefbf1" stroke="#24a148"/>
+            <rect x="250" y="240" width="180" height="56" rx="8" fill="#eefbf1" stroke="#24a148" />
             <text x="340" y="274" text-anchor="middle" font-size="15">Implementation</text>
 
-            <rect x="480" y="240" width="180" height="56" rx="8" fill="#f3f8ff" stroke="#4a90e2"/>
+            <rect x="480" y="240" width="180" height="56" rx="8" fill="#f3f8ff" stroke="#4a90e2" />
             <text x="570" y="274" text-anchor="middle" font-size="15">Live Public Metrics</text>
 
-            <rect x="710" y="240" width="200" height="56" rx="8" fill="#f4f0ff" stroke="#8a3ffc"/>
+            <rect x="710" y="240" width="200" height="56" rx="8" fill="#f4f0ff" stroke="#8a3ffc" />
             <text x="810" y="274" text-anchor="middle" font-size="15">Independent Audit</text>
 
-            <rect x="480" y="340" width="180" height="56" rx="8" fill="#fff4eb" stroke="#ff832b"/>
+            <rect x="480" y="340" width="180" height="56" rx="8" fill="#fff4eb" stroke="#ff832b" />
             <text x="570" y="374" text-anchor="middle" font-size="15">Renew / Amend / Repeal</text>
 
-            <line x1="200" y1="48" x2="250" y2="48" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
-            <line x1="430" y1="48" x2="480" y2="48" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
-            <line x1="660" y1="48" x2="710" y2="48" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
-            <line x1="810" y1="76" x2="810" y2="130" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
-            <line x1="710" y1="158" x2="660" y2="158" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
-            <line x1="480" y1="158" x2="430" y2="158" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
-            <line x1="340" y1="186" x2="340" y2="240" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
-            <line x1="430" y1="268" x2="480" y2="268" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
-            <line x1="660" y1="268" x2="710" y2="268" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
-            <line x1="810" y1="296" x2="660" y2="368" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)"/>
-            <line x1="480" y1="368" x2="110" y2="76" stroke="#4a90e2" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#arrow)"/>
+            <line x1="200" y1="48" x2="250" y2="48" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)" />
+            <line x1="430" y1="48" x2="480" y2="48" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)" />
+            <line x1="660" y1="48" x2="710" y2="48" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)" />
+            <line x1="810" y1="76" x2="810" y2="130" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)" />
+            <line x1="710" y1="158" x2="660" y2="158" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)" />
+            <line x1="480" y1="158" x2="430" y2="158" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)" />
+            <line x1="340" y1="186" x2="340" y2="240" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)" />
+            <line x1="430" y1="268" x2="480" y2="268" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)" />
+            <line x1="660" y1="268" x2="710" y2="268" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)" />
+            <line x1="810" y1="296" x2="660" y2="368" stroke="#4a90e2" stroke-width="2" marker-end="url(#arrow)" />
+            <line x1="480" y1="368" x2="110" y2="76" stroke="#4a90e2" stroke-width="2" stroke-dasharray="7 7"
+              marker-end="url(#arrow)" />
           </svg>
           <p class="tiny">Dashed arrow = citizens can reopen process through initiative and recall channels.</p>
         </section>
@@ -238,28 +285,76 @@
             <h3>Power Checks Matrix</h3>
             <table class="matrix">
               <thead>
-                <tr><th>Institution</th><th>Can block</th><th>Can be checked by</th></tr>
+                <tr>
+                  <th>Institution</th>
+                  <th>Can block</th>
+                  <th>Can be checked by</th>
+                </tr>
               </thead>
               <tbody>
-                <tr><td>Executive</td><td>Emergency action</td><td>Courts, legislature, citizen recall</td></tr>
-                <tr><td>Legislature</td><td>Budget + law</td><td>Constitutional court, referendum</td></tr>
-                <tr><td>Judiciary</td><td>Unconstitutional law</td><td>Term limits + ethics board</td></tr>
-                <tr><td>Audit Authority</td><td>Corrupt contracts</td><td>Open evidence + judicial review</td></tr>
+                <tr>
+                  <td>Executive</td>
+                  <td>Emergency action</td>
+                  <td>Courts, legislature, citizen recall</td>
+                </tr>
+                <tr>
+                  <td>Legislature</td>
+                  <td>Budget + law</td>
+                  <td>Constitutional court, referendum</td>
+                </tr>
+                <tr>
+                  <td>Judiciary</td>
+                  <td>Unconstitutional law</td>
+                  <td>Term limits + ethics board</td>
+                </tr>
+                <tr>
+                  <td>Audit Authority</td>
+                  <td>Corrupt contracts</td>
+                  <td>Open evidence + judicial review</td>
+                </tr>
               </tbody>
             </table>
           </section>
         </div>
 
         <h2>Failure Modes &amp; Hardening Plan</h2>
-        <p>No governance model survives first contact with reality unless it is designed for hostile actors, not ideal behavior. These are Asterra's known failure modes and the safeguards required to keep the system from collapsing into theater.</p>
+        <p>No governance model survives first contact with reality unless it is designed for hostile actors, not ideal
+          behavior. These are Asterra's known failure modes and the safeguards required to keep the system from
+          collapsing into theater.</p>
         <ul>
-          <li><strong>Metric worship (Goodhart's Law):</strong> Outcome dashboards get gamed and bias toward short-term wins. <strong>Hardening:</strong> use rotating metric portfolios, independent anti-gaming audits, qualitative citizen panels, and mandatory long-horizon indicators (10-20 year effects).</li>
-          <li><strong>Audit capture:</strong> Transparency alone can teach elites to hide better. <strong>Hardening:</strong> random auditor assignment, external peer audits, cryptographic document trails, whistleblower immunity, and automatic criminal referral for concealment fraud.</li>
-          <li><strong>Technocracy drift:</strong> Experts and models can quietly displace democratic will. <strong>Hardening:</strong> experts propose, citizens ratify constitutional direction; major policies require plain-language public challenge windows and democratic override paths.</li>
-          <li><strong>Veto overload:</strong> Too many checks can slow crisis response. <strong>Hardening:</strong> dual-mode governance: high-friction normal mode, fast crisis mode with strict expiry, scoped authority, and compulsory post-crisis judicial/legislative review.</li>
-          <li><strong>Bad-faith politics:</strong> Rational systems break under adversarial actors. <strong>Hardening:</strong> conflict-of-interest kill switches, sanctions for procedural sabotage, resilience protocols against coordinated disinformation, and transparent lobbying ledgers.</li>
-          <li><strong>Implementation gap:</strong> Continuous digital evaluation is hard at national scale. <strong>Hardening:</strong> phased rollout (municipal pilots → regional scaling → national adoption), with rollback triggers when integrity or service quality degrades.</li>
-          <li><strong>Power-transition stress:</strong> Hostile takeovers and emergency-rule abuse can bypass norms. <strong>Hardening:</strong> constitutional continuity protocol for contested transitions, caretaker limits, emergency-power firewalls, and automatic snap-election recovery mechanisms.</li>
+          <li><strong>Metric worship (Goodhart's Law):</strong> Outcome dashboards get gamed and bias toward short-term
+            wins. <strong>Hardening:</strong> use rotating metric portfolios, independent anti-gaming audits,
+            qualitative citizen panels, and mandatory long-horizon indicators (10-20 year effects).</li>
+          <li><strong>Audit capture:</strong> Transparency alone can teach elites to hide better.
+            <strong>Hardening:</strong> random auditor assignment, external peer audits, cryptographic document trails,
+            whistleblower immunity, and automatic criminal referral for concealment fraud.</li>
+          <li><strong>Technocracy drift:</strong> Experts and models can quietly displace democratic will.
+            <strong>Hardening:</strong> experts propose, citizens ratify constitutional direction; major policies
+            require plain-language public challenge windows and democratic override paths.</li>
+          <li><strong>Veto overload:</strong> Too many checks can slow crisis response. <strong>Hardening:</strong>
+            dual-mode governance: high-friction normal mode, fast crisis mode with strict expiry, scoped authority, and
+            compulsory post-crisis judicial/legislative review.</li>
+          <li><strong>Bad-faith politics:</strong> Rational systems break under adversarial actors.
+            <strong>Hardening:</strong> conflict-of-interest kill switches, sanctions for procedural sabotage,
+            resilience protocols against coordinated disinformation, and transparent lobbying ledgers.</li>
+          <li><strong>Implementation gap:</strong> Continuous digital evaluation is hard at national scale.
+            <strong>Hardening:</strong> phased rollout (municipal pilots → regional scaling → national adoption), with
+            rollback triggers when integrity or service quality degrades.</li>
+          <li><strong>Power-transition stress:</strong> Hostile takeovers and emergency-rule abuse can bypass norms.
+            <strong>Hardening:</strong> constitutional continuity protocol for contested transitions, caretaker limits,
+            emergency-power firewalls, and automatic snap-election recovery mechanisms.</li>
+        </ul>
+
+        <p>These safeguards still face second-order pressure. Anti-gaming systems can lag attackers, citizen panels can drift in legitimacy, crisis powers can become permanent by inertia, sanctions can fail without enforcement culture, phased rollouts can widen regional inequality, and continuity protocols still rely on armed institutions honoring constitutional boundaries. The core lesson is structural: power stress-tests rules at the margins first, not the center.</p>
+
+        <h3>Margin Defenses (Next Layer)</h3>
+        <ul>
+          <li><strong>Emergency entropy limit:</strong> emergency authorities auto-decay unless reauthorized by different institutions each cycle.</li>
+          <li><strong>Auditor-of-auditors rotation:</strong> randomized external meta-audits with public challenge rights.</li>
+          <li><strong>Citizen panel legitimacy heartbeat:</strong> regular sortition refresh, conflict disclosures, and mandatory publication of dissent.</li>
+          <li><strong>Capability equalization fund:</strong> phased rollouts must prioritize low-capacity regions first.</li>
+          <li><strong>Civil-military constitutional lock:</strong> armed institutions are bound to constitutional process, not personalities.</li>
+          <li><strong>Perimeter anomaly monitoring:</strong> automatic investigation triggers on emergency extensions, procurement concentration, and judicial-delay spikes.</li>
         </ul>
 
         <h2>Social Contract</h2>
@@ -267,10 +362,13 @@
           "You owe society contribution proportional to your power. Society owes you dignity regardless of your status."
         </blockquote>
 
-        <p>That means progressive taxation, robust anti-monopoly enforcement, universal baseline services, and actual upward mobility metrics tracked in public. If mobility collapses, the system is failing, regardless of GDP headlines.</p>
+        <p>That means progressive taxation, robust anti-monopoly enforcement, universal baseline services, and actual
+          upward mobility metrics tracked in public. If mobility collapses, the system is failing, regardless of GDP
+          headlines.</p>
 
         <div class="annotation">
-          <p><em>This blueprint is intentionally self-critical: every claim must survive adversarial pressure, not just ideal conditions.</em></p>
+          <p><em>This blueprint is intentionally self-critical: every claim must survive adversarial pressure, not just
+              ideal conditions.</em></p>
         </div>
       </article>
     </main>
@@ -291,4 +389,5 @@
     </aside>
   </div>
 </body>
+
 </html>
