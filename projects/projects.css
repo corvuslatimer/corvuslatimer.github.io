@@ -1,0 +1,7 @@
+/* Projects-only layout overrides */
+
+/* Base site content max-width is 900px.
+   30% wider => 1170px for project pages only. */
+.content {
+  max-width: 1170px;
+}
