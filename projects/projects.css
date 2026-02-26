@@ -41,4 +41,16 @@
 
 .content .matrix {
   font-size: 15px;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.content .matrix th,
+.content .matrix td {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.content .viz-card {
+  overflow: hidden;
 }
