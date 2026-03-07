@@ -580,15 +580,17 @@
 
         const statusMap = {};
 
-        // Closed = done (only bounty issues)
+        // Closed = done (only valid bounty issue numbers 40–77)
+        const validIssues = new Set(Object.values(ISSUE_MAP));
         for (const issue of closedIssues) {
-          if (issue.title && issue.title.includes('[OPEN]')) {
+          if (validIssues.has(issue.number)) {
             statusMap[issue.number] = 'done';
           }
         }
 
-        // Open: check assignee or comments
+        // Open: check assignee or comments (only valid bounty issues)
         for (const issue of openIssues) {
+          if (!validIssues.has(issue.number)) continue;
           if (issue.assignee || issue.comments > 0) {
             statusMap[issue.number] = 'claimed';
           } else {
