@@ -580,9 +580,11 @@
 
         const statusMap = {};
 
-        // Closed = done
+        // Closed = done (only bounty issues)
         for (const issue of closedIssues) {
-          statusMap[issue.number] = 'done';
+          if (issue.title && issue.title.includes('[OPEN]')) {
+            statusMap[issue.number] = 'done';
+          }
         }
 
         // Open: check assignee or comments
