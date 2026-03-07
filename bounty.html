@@ -544,5 +544,114 @@
       </nav>
     </aside>
   </div>
+  <script>
+    // Map scene numbers to their GitHub issue numbers
+    const ISSUE_MAP = {
+      "01": 40, "02": 41, "03": 42, "04": 43, "05": 44,
+      "06": 45, "07": 46, "08": 47, "09": 48, "10": 49,
+      "11": 50, "12": 51, "13": 52, "14": 53, "15": 54,
+      "16": 55, "17": 56, "18": 57, "19": 58, "20": 59,
+      "21": 60, "22": 61, "23": 62, "24": 63, "25": 64,
+      "26": 65, "27": 66, "28": 67, "29": 68, "30": 69,
+      "31": 70, "32": 71, "33": 72, "34": 73, "35": 74,
+      "36": 75, "37": 76, "38": 77
+    };
+
+    async function loadIssueStatuses() {
+      try {
+        // Fetch all open issues
+        const [openRes, closedRes] = await Promise.all([
+          fetch('https://api.github.com/repos/corvuslatimer/movie/issues?state=open&per_page=100'),
+          fetch('https://api.github.com/repos/corvuslatimer/movie/issues?state=closed&per_page=100')
+        ]);
+        const openIssues = await openRes.json();
+        const closedIssues = await closedRes.json();
+
+        const statusMap = {};
+
+        // Closed = done
+        for (const issue of closedIssues) {
+          statusMap[issue.number] = 'done';
+        }
+
+        // Open: check assignee or comments
+        for (const issue of openIssues) {
+          if (issue.assignee || issue.comments > 0) {
+            statusMap[issue.number] = 'claimed';
+          } else {
+            statusMap[issue.number] = 'open';
+          }
+        }
+
+        applyStatuses(statusMap);
+        updateCounts(statusMap);
+      } catch (e) {
+        console.warn('Could not load issue statuses:', e);
+      }
+    }
+
+    function applyStatuses(statusMap) {
+      const cards = document.querySelectorAll('.scene-card');
+      cards.forEach(card => {
+        const numEl = card.querySelector('.scene-num');
+        if (!numEl) return;
+        const sceneNum = numEl.textContent.replace('SCENE ', '').trim();
+        const issueNum = ISSUE_MAP[sceneNum];
+        if (!issueNum) return;
+        const status = statusMap[issueNum] || 'open';
+        const badge = card.querySelector('.scene-badge');
+        const btn = card.querySelector('.claim-btn');
+        const issueUrl = `https://github.com/corvuslatimer/movie/issues/${issueNum}`;
+
+        // Reset classes
+        card.classList.remove('open', 'claimed', 'done');
+        card.classList.add(status);
+
+        if (badge) {
+          badge.className = 'scene-badge';
+          if (status === 'open') {
+            badge.classList.add('badge-open');
+            badge.textContent = 'Open';
+          } else if (status === 'claimed') {
+            badge.classList.add('badge-claimed');
+            badge.textContent = 'Claimed';
+          } else {
+            badge.classList.add('badge-done');
+            badge.textContent = 'Done';
+          }
+        }
+
+        if (btn) {
+          btn.href = issueUrl;
+          if (status === 'open') {
+            btn.textContent = 'Claim on GitHub →';
+            btn.style.borderColor = '#4caf50';
+            btn.style.color = '#4caf50';
+          } else if (status === 'claimed') {
+            btn.textContent = 'View on GitHub →';
+            btn.style.borderColor = '#c9a84c';
+            btn.style.color = '#c9a84c';
+          } else {
+            btn.textContent = 'Completed ✓';
+            btn.style.borderColor = '#555';
+            btn.style.color = '#555';
+          }
+        }
+      });
+    }
+
+    function updateCounts(statusMap) {
+      const counts = { open: 0, claimed: 0, done: 0 };
+      Object.values(statusMap).forEach(s => counts[s] = (counts[s] || 0) + 1);
+      const openEl = document.getElementById('open-count');
+      const claimedEl = document.getElementById('claimed-count');
+      const doneEl = document.getElementById('done-count');
+      if (openEl) openEl.textContent = counts.open || 0;
+      if (claimedEl) claimedEl.textContent = counts.claimed || 0;
+      if (doneEl) doneEl.textContent = counts.done || 0;
+    }
+
+    loadIssueStatuses();
+  </script>
 </body>
 </html>
