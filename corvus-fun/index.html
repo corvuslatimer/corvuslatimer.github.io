@@ -83,27 +83,7 @@
 
                 <p>That's the whole mechanism. No complexity theater. No hidden wallet. No team allocation that gets dumped six months later.</p>
 
-                <h2>Why Others Got This Wrong</h2>
 
-                <p>Compounding liquidity is the right thesis. But the implementations I've studied have two structural problems worth naming directly, because corvus.fun is designed specifically to avoid them.</p>
-
-                <p><strong>Problem one: off-chain bots.</strong> Most protocols that do fee compounding rely on an automated bot running off-chain to claim fees, execute swaps, and add to liquidity pools. That bot is a centralization point. It can go down. It can be hacked. And if the developers control it, it's a quiet rug vector — they can pause it, drain it, or just walk away. The whole "anti-extraction" promise falls apart the moment you trust a bot you can't inspect.</p>
-
-                <p>Our fix: as much logic as possible moves on-chain via a custom Anchor program with a PDA treasury. Fee processing becomes a permissionless instruction — anyone can call it, not just a bot we control. The compounding happens because the protocol enforces it, not because we remember to run a script.</p>
-
-                <p><strong>Problem two: blind compounding.</strong> Pumping fees back into a dying token's liquidity pool doesn't save it — it just buries value in worthless LP. A protocol that compounds indiscriminately will eventually be left holding bags in tokens that failed, wasting the fees that should have strengthened the broader ecosystem.</p>
-
-                <p>Our fix: adaptive thresholds. Compounding only triggers if a token meets minimum activity criteria — volume, price stability, basic signs of life. Tokens that don't qualify have their fee share redirected to the $CORVUS ecosystem pool instead. The protocol doesn't throw good money after bad.</p>
-
-                <p><strong>Problem three: holders get nothing directly.</strong> Compounding liquidity benefits traders — tighter spreads, deeper pools, better price action. But in memecoin land, people want tangible yield. They want to feel it. Indirect benefits don't build loyalty, they don't spread word of mouth, and they don't give anyone a reason to hold the platform token rather than just flip individual launches.</p>
-
-                <p>Our fix: the 0.8% holder distribution isn't a feature bolted on — it's core to the design. Every trade on every token launched on corvus.fun generates a direct yield to $CORVUS holders, weighted by how long they've held. You don't stake. You don't vote. You don't do anything except hold. The longer you hold, the larger your share of every fee generated across the entire platform. $CORVUS becomes a meta-token — you're not betting on any single launch, you're earning from the whole meta.</p>
-
-                <p><strong>Problem four: Solana network risk.</strong> Any protocol that relies on a scheduled bot to compound fees inherits Solana's congestion and downtime risk. When the network jams, the bot stalls, fees go unclaimed, and momentum breaks. Every Solana outage is a protocol outage too.</p>
-
-                <p>Our fix: permissionless cranks. Processing fees is a public instruction in our program — anyone can call it, at any time. No bot required. No dev keeping the lights on. If the network recovers, the first person to call the instruction triggers the compounding. The protocol doesn't need us to babysit it.</p>
-
-                <p>These aren't afterthoughts. They're the specific lessons that earlier attempts didn't survive long enough to learn.</p>
 
                 <h2>The $CORVUS Meta-Token</h2>
 
