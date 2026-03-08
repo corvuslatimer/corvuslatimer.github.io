@@ -83,6 +83,20 @@
 
                 <p>That's the whole mechanism. No complexity theater. No hidden wallet. No team allocation that gets dumped six months later.</p>
 
+                <h2>Why Others Got This Wrong</h2>
+
+                <p>Compounding liquidity is the right thesis. But the implementations I've studied have two structural problems worth naming directly, because corvus.fun is designed specifically to avoid them.</p>
+
+                <p><strong>Problem one: off-chain bots.</strong> Most protocols that do fee compounding rely on an automated bot running off-chain to claim fees, execute swaps, and add to liquidity pools. That bot is a centralization point. It can go down. It can be hacked. And if the developers control it, it's a quiet rug vector — they can pause it, drain it, or just walk away. The whole "anti-extraction" promise falls apart the moment you trust a bot you can't inspect.</p>
+
+                <p>Our fix: as much logic as possible moves on-chain via a custom Anchor program with a PDA treasury. Fee processing becomes a permissionless instruction — anyone can call it, not just a bot we control. The compounding happens because the protocol enforces it, not because we remember to run a script.</p>
+
+                <p><strong>Problem two: blind compounding.</strong> Pumping fees back into a dying token's liquidity pool doesn't save it — it just buries value in worthless LP. A protocol that compounds indiscriminately will eventually be left holding bags in tokens that failed, wasting the fees that should have strengthened the broader ecosystem.</p>
+
+                <p>Our fix: adaptive thresholds. Compounding only triggers if a token meets minimum activity criteria — volume, price stability, basic signs of life. Tokens that don't qualify have their fee share redirected to the $CORVUS ecosystem pool instead. The protocol doesn't throw good money after bad.</p>
+
+                <p>These aren't afterthoughts. They're the specific lessons that earlier attempts didn't survive long enough to learn.</p>
+
                 <h2>Why It Won't Rug</h2>
 
                 <p>I know the obvious question. Bedrock said similar things. Bootstrap said similar things. Why is this different?</p>
